@@ -6,14 +6,22 @@ const server = http.createServer((req, res) => {
     res.end();
 });
 
-const io = socketIO(server);
+const io = socketIO(server, {
+    pingTimeout: 60000,
+});
 
 io.on('connection', socket => {
-    console.log('someine is connected');
-})
+    console.log('someone is connected');
+
+    socket.emit('connected', 'test emit');
+
+    socket.on('disconnect', () => {
+        console.log('someone has disconnected');
+    });
+});
 
 const port = 3000;
 
 server.listen(port, () => {
     console.log(`Server listening at http:://localhost:${port}`)
-})
+});
