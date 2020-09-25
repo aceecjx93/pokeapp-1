@@ -11,6 +11,31 @@
             socket.on('connected', data => {
                 console.log(data);
             });
+<<<<<<< Updated upstream
+=======
+
+            socket.on('terminated',() => {
+                console.log("L'adversaire à quitté la partie.");
+            });
+
+            socket.on('terminated', () => {
+                console.log('game terminated');
+            });
+
+            socket.on('ended', data => {
+                console.log('ended');
+                console.log(data);
+            })
+
+            socket.on('moved', data => {
+                console.log('moved');
+                console.log(data);
+
+                if ('you' === data.turn) {
+                    socket.emit('move', 3);
+                }
+            })
+>>>>>>> Stashed changes
         </script>
     </body>
 </html>

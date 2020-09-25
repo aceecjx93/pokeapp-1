@@ -10,8 +10,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< Updated upstream
     "start": "node index.js",
     "dev": "nodemon index.js"
+=======
+    "start": "node --experimental-modules --es-module-specifier-resolution=node --experimental-json-modules index.js",
+    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node --experimental-json-modules index.js"
+>>>>>>> Stashed changes
   },
   "author": "",
   "license": "ISC"
